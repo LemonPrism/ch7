@@ -8,10 +8,8 @@ public class ch7
         
         int [] nums = { 5, 10, 56 , 20 };
         int n = 5;
-        String msg = " Hello"; 
-        
-        
-        System.out.println (letterHist( msg ) ); 
+        //int[] h = letterHist("Hello, World!");
+        //System.out.println(java.util.Arrays.toString(h));
         // System.out.println (arePrimeFactors ( nums, n ) ) ;  
         //System.out.println (areFactors ( nums, n)  );
         //System.out.println(sieve(n)) ;
@@ -46,35 +44,32 @@ public class ch7
     /*
     
     
-    public static boolean [] sieve (int n){
-        
-        boolean [] sieve = new boolean[n]; 
-        
-        for ( int k = 0; k < n ; k ++ ){
-            sieve [i] = true; 
-        }
-        sieve [0] = sieve [ 1 ] = false;
-        int i = 2 ; 
-        while ( i < n ) {
-        
-         while ( sieve[i] == false ){
-             i ++ ; 
-         } 
-         int prime = i ; 
-         if( i < n ) {
-             i += prime; 
-             while ( i < n ) {
-                 sieve[i] = false; 
-             }
-              
-               i = prime + 1; 
+   public static boolean[] sieve(int n) {
+    boolean[] isPrime = new boolean[n];
+    
+    int k = 0;
+    while (k < n) {
+        isPrime[k] = true;
+        k++;
+    }
+    if (n > 0) isPrime[0] = false;
+    if (n > 1) isPrime[1] = false;
+
+
+    int i = 2;
+    while (i * i < n) {         
+        if (isPrime[i]) {
+            int j = i * i;       
+            while (j < n) {
+                isPrime[j] = false;
+                j += i;         
             }
-         
-        } 
-     
-        return sieve; 
-        
         }
+        i++;                      
+    }
+    return isPrime;
+}
+
         
        
         */
@@ -137,38 +132,26 @@ public class ch7
        
        //7.7
        
-      
-       public static int []  letterHist ( String msg ) {
-           
-           msg= msg.toLowerCase();
-           
-           int [] alphabet = new int [26] ; 
-           
-           
-           int i = 0 ; 
-           
-           while ( i < msg.length() ) {
-               
-               
-               
-               
-               
-               i ++;
-           }
-           
-           return 
-           
-           
-           
-           
-           
-           
-        
-             
-        
-         
-        
+      /*
+       public static int[] letterHist(String msg) {
+    msg = msg.toLowerCase();
+    int[] alphabet = new int[26];
+
+    int i = 0;
+    while (i < msg.length()) {
+        char c = msg.charAt(i);
+        if (c >= 'a' && c <= 'z') {
+            alphabet[c - 'a']++;   
         }
-        
+        i++;
+    }
+    return alphabet;
+}
+
+        */
         
     } 
+
+
+
+ 
